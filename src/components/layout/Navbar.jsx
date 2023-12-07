@@ -26,7 +26,7 @@ const Navbar = ({ navigation }) => {
         className={({ open }) =>
           classNames(
             open ? "fixed inset-0 z-40 overflow-y-auto" : "",
-            "bg-white shadow-sm lg:static lg:overflow-y-visible"
+            "bg-white shadow-sm lg:static lg:overflow-y-visible py-3"
           )
         }
       >
@@ -36,18 +36,19 @@ const Navbar = ({ navigation }) => {
               <div className="relative flex justify-between lg:gap-8 xl:grid xl:grid-cols-12">
                 <div className="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2">
                   <div className="flex flex-shrink-0 items-center">
-                    <a href="#">
+                    <a href="#" className="flex items-center gap-2 font-bold">
                       <img
                         className="block h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=500"
-                        alt="Your Company"
+                        src="/images/Kanban Logo.png"
+                        alt="KanBan App"
                       />
+                      <span>KanBan App</span>
                     </a>
                   </div>
                 </div>
                 <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
                   <div className="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
-                    <div className="w-full">
+                    {/* <div className="w-full">
                       <label htmlFor="search" className="sr-only">
                         Search
                       </label>
@@ -66,12 +67,12 @@ const Navbar = ({ navigation }) => {
                           type="search"
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="flex items-center md:absolute md:inset-y-0 md:right-0 lg:hidden">
                   {/* Mobile menu button */}
-                  <Popover.Button className="relative -mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
+                  {/* <Popover.Button className="relative -mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open menu</span>
                     {open ? (
@@ -79,10 +80,10 @@ const Navbar = ({ navigation }) => {
                     ) : (
                       <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                     )}
-                  </Popover.Button>
+                  </Popover.Button> */}
                 </div>
                 <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-                  <a
+                  {/* <a
                     href="#"
                     className="text-sm font-medium text-gray-900 hover:underline"
                   >
@@ -94,10 +95,10 @@ const Navbar = ({ navigation }) => {
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </a>
+                  </a> */}
 
                   {/* Profile dropdown */}
-                  <Menu as="div" className="relative ml-5 flex-shrink-0">
+                  {/* <Menu as="div" className="relative ml-5 flex-shrink-0">
                     <div>
                       <Menu.Button className="relative flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">
                         <span className="absolute -inset-1.5" />
@@ -136,14 +137,14 @@ const Navbar = ({ navigation }) => {
                         ))}
                       </Menu.Items>
                     </Transition>
-                  </Menu>
+                  </Menu> */}
 
-                  <a
+                  {/* <a
                     href="#"
                     className="ml-6 inline-flex items-center rounded-md bg-rose-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
                   >
                     New Post
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>

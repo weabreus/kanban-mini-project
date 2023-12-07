@@ -52,7 +52,7 @@ const Sidebar = ({navigation}) => {
             </a>
           ))}
         </div>
-        <div className="pt-10">
+        {/* <div className="pt-10">
           <p
             className="px-3 text-sm font-medium text-gray-500"
             id="communities-headline"
@@ -73,7 +73,7 @@ const Sidebar = ({navigation}) => {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
       </nav>
     </div>
   );

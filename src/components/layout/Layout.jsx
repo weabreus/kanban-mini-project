@@ -37,9 +37,9 @@ export default function Layout({ children }) {
       <div className="min-h-full">
         <Navbar navigation={navigation} />
         <div className="pt-10 pb-[88px] h-[calc(100vh-56px)]">
-          <div className="w-full sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
+          <div className="w-full sm:px-6 lg:grid lg:grid-cols-12 lg:gap-8 lg:px-8">
             <Sidebar navigation={navigation} />
-            <main className="lg:col-span-9 xl:col-span-6">{children}</main>
+            <main className="lg:col-span-10 xl:col-span-10">{children}</main>
           </div>
         </div>
         <Footer footerNavigation={footerNavigation} />

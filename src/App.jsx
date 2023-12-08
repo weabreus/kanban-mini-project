@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import Layout from './components/layout/Layout'
-import BoardsList from './components/BoardList/BoardsList'
+import { useState } from "react";
+import Layout from "./components/layout/Layout";
+import BoardsList from "./components/BoardList/BoardsList";
+import { Route, Routes } from "react-router-dom";
+import BoardDetails from "./components/BoardDetails/BoardDetails";
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <Layout>
-        <BoardsList />
+        <Routes>
+          <Route path={"/"} element={<BoardsList />} />
+          <Route path={"board/:boardId"} element={<BoardDetails />} />
+        </Routes>
       </Layout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

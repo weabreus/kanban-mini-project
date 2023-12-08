@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const navigation = [
-  { name: "Boards", href: "#", icon: Squares2X2Icon, current: true },
+  { name: "Boards", href: "/", icon: Squares2X2Icon, current: true },
   { name: "About", href: "#", icon: InformationCircleIcon, current: false },
   // { name: "Popular", href: "#", icon: FireIcon, current: false },
   // { name: "Communities", href: "#", icon: UserGroupIcon, current: false },

@@ -7,6 +7,7 @@ import {
   HomeIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const communities = [
   { name: "Movies", href: "#" },
@@ -28,9 +29,9 @@ const Sidebar = ({navigation}) => {
       >
         <div className="space-y-1 pb-8">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.href}
               className={classNames(
                 item.current
                   ? "bg-gray-200 text-gray-900"
@@ -49,7 +50,7 @@ const Sidebar = ({navigation}) => {
                 aria-hidden="true"
               />
               <span className="truncate">{item.name}</span>
-            </a>
+            </Link>
           ))}
         </div>
         {/* <div className="pt-10">

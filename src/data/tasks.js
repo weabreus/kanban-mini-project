@@ -8,7 +8,8 @@ let tasks = [
     priority: "High",
     createdDate: "2023-09-15",
     dueDate: "2023-09-30",
-    boardId: 1
+    boardId: 1,
+    listName: "Pending"
   },
   {
     id: "2",
@@ -20,7 +21,8 @@ let tasks = [
     priority: "Medium",
     createdDate: "2023-09-16",
     dueDate: "2023-10-10",
-    boardId: 1
+    boardId: 1,
+    listName: "Pending"
   },
   {
     id: "3",
@@ -31,7 +33,8 @@ let tasks = [
     priority: "High",
     createdDate: "2023-09-17",
     dueDate: "2023-09-25",
-    boardId: 1
+    boardId: 1,
+    listName: "Pending"
   },
   {
     id: "4",
@@ -43,7 +46,8 @@ let tasks = [
     priority: "High",
     createdDate: "2023-09-18",
     dueDate: "2023-10-05",
-    boardId: 1
+    boardId: 1,
+    listName: "Pending"
   },
   {
     id: "5",
@@ -55,7 +59,8 @@ let tasks = [
     priority: "Low",
     createdDate: "2023-09-19",
     dueDate: "2023-09-30",
-    boardId: 1
+    boardId: 1,
+    listName: "Pending"
   },
 ];
 

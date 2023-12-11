@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/24/outline";
+import { CheckIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { classNames } from "../../utils/utils";
 
 export default function BoardTaskModal({ open, setOpen, selectedTask }) {
@@ -34,33 +34,76 @@ export default function BoardTaskModal({ open, setOpen, selectedTask }) {
                 <div>
                   <div className="flex justify-between">
                     <h1 className="font-bold">{selectedTask?.title}</h1>
-                    <p
-                      className={classNames(
-                        selectedTask.status === "To Do"
-                          ? "bg-red-500 text-white"
-                          : "",
-                        selectedTask.status === "In Progress"
-                          ? " bg-yellow-500 text-gray-900"
-                          : "",
-                        selectedTask.status === "Done"
-                          ? "bg-green-500 text-white"
-                          : "",
-                        "px-2 py-1 rounded-md text-xs font-semibold"
-                      )}
-                    >
-                      {selectedTask.status}
-                    </p>
+                    <div className="flex gap-2 items-center">
+                      {/* <p
+                        className={classNames(
+                          selectedTask?.status === "To Do"
+                            ? "bg-red-500 text-white"
+                            : "",
+                          selectedTask?.status === "In Progress"
+                            ? " bg-yellow-500 text-gray-900"
+                            : "",
+                          selectedTask?.status === "Done"
+                            ? "bg-green-500 text-white"
+                            : "",
+                          "px-2 py-1 rounded-md text-xs font-semibold"
+                        )}
+                      >
+                        {selectedTask?.status}
+                      </p> */}
+                      <XCircleIcon onClick={() => setOpen(false)} className="h-6 w-6 text-red-500" />
+                    </div>
                   </div>
 
                   <p className="text-xs">
                     in list{" "}
                     <span className=" italic underline">
-                      {selectedTask.listName}
+                      {selectedTask?.listName}
                     </span>
                   </p>
                   <div className="mt-2 bg-gray-300 rounded-md p-2">
                     {/* <h4 className="text-sm font-semibold text-black">Details</h4> */}
-                    <p className="text-sm">{selectedTask.description}</p>
+                    <p className="text-sm">{selectedTask?.description}</p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className=" items-center justify-between text-xs mt-2">
+                      <p>
+                        <span className="font-bold">Created:</span>{" "}
+                        {selectedTask.createdDate}
+                      </p>
+                      <p>
+                        <span className="font-bold">Assignee:</span>{" "}
+                        {selectedTask.assignee}
+                      </p>
+                    </div>
+                    <div className=" items-center justify-between text-xs mt-2">
+                      <p>
+                        <span className="font-bold">Due:</span>{" "}
+                        {selectedTask.dueDate}
+                      </p>
+                      <p>
+                        <span className="font-bold">Priority:</span>{" "}
+                        {selectedTask.priority}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-center">
+                    <p
+                      className={classNames(
+                        selectedTask?.status === "To Do"
+                          ? "bg-red-500 text-white"
+                          : "",
+                        selectedTask?.status === "In Progress"
+                          ? " bg-yellow-500 text-gray-900"
+                          : "",
+                        selectedTask?.status === "Done"
+                          ? "bg-green-500 text-white"
+                          : "",
+                        "px-2 py-1 rounded-md text-xs font-semibold"
+                      )}
+                    >
+                      {selectedTask?.status}
+                    </p>
                   </div>
                 </div>
               </Dialog.Panel>

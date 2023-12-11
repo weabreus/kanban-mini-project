@@ -7,7 +7,9 @@ import BoardList from "./BoardList";
 
 const BoardDetails = () => {
   const { boardId } = useParams();
+
   const [taskList, setTaskList] = useState([]);
+
   const [uniqueLists, setUniqueLists] = useState([]);
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const BoardDetails = () => {
       setUniqueLists(uniqueListsNames);
     }
   }, []);
-
+  
   return (
     <div className="flex gap-2 w-full h-full">
       {/* Render all unique lists in taskList */}

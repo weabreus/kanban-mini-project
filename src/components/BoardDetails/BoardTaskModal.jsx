@@ -3,7 +3,12 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { classNames } from "../../utils/utils";
 
-export default function BoardTaskModal({ open, setOpen, selectedTask }) {
+export default function BoardTaskModal({
+  open,
+  setOpen,
+  selectedTask,
+  uniqueLists,
+}) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -33,7 +38,12 @@ export default function BoardTaskModal({ open, setOpen, selectedTask }) {
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                 <div>
                   <div className="flex justify-between">
-                    <h1 className="font-bold">{selectedTask?.title}</h1>
+                    <input
+                      className="font-bold p-0 border-0 w-full"
+                      type="text"
+                      value={selectedTask?.title}
+                    />
+                    {/* <h1 className="font-bold">{selectedTask?.title}</h1> */}
                     <div className="flex gap-2 items-center">
                       {/* <p
                         className={classNames(
@@ -51,19 +61,35 @@ export default function BoardTaskModal({ open, setOpen, selectedTask }) {
                       >
                         {selectedTask?.status}
                       </p> */}
-                      <XCircleIcon onClick={() => setOpen(false)} className="h-6 w-6 text-red-500" />
+                      <XCircleIcon
+                        onClick={() => setOpen(false)}
+                        className="h-6 w-6 text-red-500"
+                      />
                     </div>
                   </div>
-
-                  <p className="text-xs">
-                    in list{" "}
-                    <span className=" italic underline">
+                  <div className="flex gap-1 items-center mt-1">
+                    <p className="text-xs">
+                      in list{" "}
+                      {/* <span className=" italic underline">
                       {selectedTask?.listName}
-                    </span>
-                  </p>
+                    </span> */}
+                    </p>
+
+                    <select
+                      className={
+                        "text-xs italic underline p-0 border-0 appearance-none bg-none"
+                      }
+                      name="listName"
+                      id="listName"
+                    >
+                      {uniqueLists &&
+                        uniqueLists.map((list) => <option>{list}</option>)}
+                    </select>
+                  </div>
+
                   <div className="mt-2 bg-gray-300 rounded-md p-2">
                     {/* <h4 className="text-sm font-semibold text-black">Details</h4> */}
-                    <p className="text-sm">{selectedTask?.description}</p>
+                    <textarea className="text-sm w-full p-0 bg-transparent border-0" rows={3} value={selectedTask?.description} />
                   </div>
                   <div className="flex items-center justify-between">
                     <div className=" items-center justify-between text-xs mt-2">

@@ -51,6 +51,7 @@ const BoardDetails = () => {
             setTaskList={setTaskList}
             dropListName={dropListName}
             setDropListName={setDropListName}
+            uniqueLists={uniqueLists}
           />
         ))}
       <button onClick={() => setOpenNewListModal(true)} className="flex gap-2 items-center justify-center bg-blue-600 text-white h-fit px-4 py-2 rounded-md hover:bg-blue-500">

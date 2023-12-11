@@ -12,6 +12,7 @@ const BoardList = ({
   taskList,
   dropListName,
   setDropListName,
+  uniqueLists
 }) => {
   const [open, setOpen] = useState(false);
   const [openNewTaskModal, setOpenNewTaskModal] = useState(false);
@@ -74,6 +75,7 @@ const BoardList = ({
         open={open}
         setOpen={setOpen}
         selectedTask={selectedTask}
+        uniqueLists={uniqueLists}
       />
       <BoardNewTaskModal
         open={openNewTaskModal}

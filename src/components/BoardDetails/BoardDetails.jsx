@@ -15,6 +15,8 @@ const BoardDetails = () => {
 
   const [openNewListModal, setOpenNewListModal] = useState(false);
 
+  const [dropListName, setDropListName] = useState();
+
   const handleAddList = (newListName) => {
     let newUniqueLists = [...uniqueLists];
     newUniqueLists.push(newListName);
@@ -47,6 +49,8 @@ const BoardDetails = () => {
             tasks={taskList.filter((task) => task.listName === listName)}
             taskList={taskList}
             setTaskList={setTaskList}
+            dropListName={dropListName}
+            setDropListName={setDropListName}
           />
         ))}
       <button onClick={() => setOpenNewListModal(true)} className="flex gap-2 items-center justify-center bg-blue-600 text-white h-fit px-4 py-2 rounded-md hover:bg-blue-500">

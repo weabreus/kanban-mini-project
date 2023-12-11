@@ -5,14 +5,44 @@ import { SquaresPlusIcon } from "@heroicons/react/24/outline";
 import BoardNewTaskModal from "./BoardNewTaskModal";
 import { useParams } from "react-router-dom";
 
-const BoardList = ({ boardListName, tasks, setTaskList, taskList }) => {
+const BoardList = ({
+  boardListName,
+  tasks,
+  setTaskList,
+  taskList,
+  dropListName,
+  setDropListName,
+}) => {
   const [open, setOpen] = useState(false);
   const [openNewTaskModal, setOpenNewTaskModal] = useState(false);
   const [selectedTask, setSelectedTask] = useState();
-  const {boardId} = useParams();
+
+  const { boardId } = useParams();
+
+  const onDrop = (e) => {
+    let newTaskList = [...taskList];
+
+    let elementIndex = newTaskList.findIndex(
+      (element) => element.id === e.dataTransfer.getData("text/plain")
+    );
+
+    newTaskList[elementIndex].listName = boardListName;
+
+    setTaskList(newTaskList);
+    e.preventDefault();
+  };
+  
   return (
     <>
-      <div className="relative w-1/5 bg-gray-200 rounded-md border border-gray-300 p-2 text-gray-900 shadow-sm max-h-[calc(100vh-190px)]">
+      <div
+        onDrop={(e) => onDrop(e)}
+        onDragOver={(e) => e.preventDefault()}
+        onDragEnter={(e) => {
+          e.preventDefault();
+          setDropListName(boardListName);
+        }}
+        className="relative w-1/5 bg-gray-200 rounded-md border border-gray-300 p-2 text-gray-900 shadow-sm max-h-[calc(100vh-190px)]"
+      >
         <h1>{boardListName}</h1>
         <div className="flex flex-col gap-2 mb-10 overflow-y-auto max-h-[calc(100%-65px)]">
           {tasks.length > 0 &&
@@ -22,6 +52,8 @@ const BoardList = ({ boardListName, tasks, setTaskList, taskList }) => {
                 task={task}
                 setOpen={setOpen}
                 setSelectedTask={setSelectedTask}
+                taskList={taskList}
+                setTaskList={setTaskList}
               />
             ))}
         </div>

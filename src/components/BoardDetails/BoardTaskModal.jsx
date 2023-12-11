@@ -69,21 +69,21 @@ export default function BoardTaskModal({ open, setOpen, selectedTask }) {
                     <div className=" items-center justify-between text-xs mt-2">
                       <p>
                         <span className="font-bold">Created:</span>{" "}
-                        {selectedTask.createdDate}
+                        {selectedTask?.createdDate}
                       </p>
                       <p>
                         <span className="font-bold">Assignee:</span>{" "}
-                        {selectedTask.assignee}
+                        {selectedTask?.assignee}
                       </p>
                     </div>
                     <div className=" items-center justify-between text-xs mt-2">
                       <p>
                         <span className="font-bold">Due:</span>{" "}
-                        {selectedTask.dueDate}
+                        {selectedTask?.dueDate}
                       </p>
                       <p>
                         <span className="font-bold">Priority:</span>{" "}
-                        {selectedTask.priority}
+                        {selectedTask?.priority}
                       </p>
                     </div>
                   </div>

@@ -11,7 +11,7 @@ const BoardList = ({ boardListName, tasks }) => {
       <div className=" w-1/5 bg-gray-200 rounded-md border border-gray-300 p-2 text-gray-900 shadow-sm">
         <h1>{boardListName}</h1>
         <div className="flex flex-col gap-2">
-          {tasks &&
+          {tasks.length > 0 &&
             tasks.map((task) => (
               <BoardTask
                 key={`${boardListName}-task-${task.id}`}

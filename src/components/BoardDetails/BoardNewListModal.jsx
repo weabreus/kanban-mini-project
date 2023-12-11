@@ -1,9 +1,15 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 
 const BoardNewListModal = ({ open, setOpen, handleAddList }) => {
   const [newListName, setNewListName] = useState("");
+
+  useEffect(() => {
+    return () => {
+        setNewListName("");
+    }
+  },  [])
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { v4 as uuidv4 } from "uuid";
@@ -43,6 +43,22 @@ const BoardNewTaskModal = ({
     boardId: boardId,
     listName: listName,
   });
+
+  useEffect(() => {
+    return () => {
+      setNewTask({
+        title: "",
+        description: "",
+        assignee: "",
+        status: "To Do",
+        priority: "Low",
+        createdDate: "",
+        dueDate: "",
+        boardId: boardId,
+        listName: listName,
+      });
+    };
+  }, []);
 
   return (
     <Transition.Root show={open} as={Fragment}>

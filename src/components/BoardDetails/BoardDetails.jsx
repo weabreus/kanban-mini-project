@@ -9,7 +9,7 @@ import BoardNewListModal from "./BoardNewListModal";
 const BoardDetails = () => {
   const { boardId } = useParams();
 
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState(tasks);
 
   const [uniqueLists, setUniqueLists] = useState([]);
 
@@ -44,7 +44,9 @@ const BoardDetails = () => {
           <BoardList
             key={`board-${boardId}-list-${listName}`}
             boardListName={listName}
-            tasks={tasks.filter((task) => task.listName === listName)}
+            tasks={taskList.filter((task) => task.listName === listName)}
+            taskList={taskList}
+            setTaskList={setTaskList}
           />
         ))}
       <button onClick={() => setOpenNewListModal(true)} className="flex gap-2 items-center justify-center bg-blue-600 text-white h-fit px-4 py-2 rounded-md hover:bg-blue-500">

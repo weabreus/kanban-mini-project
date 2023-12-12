@@ -9,16 +9,6 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
-const communities = [
-  { name: "Movies", href: "#" },
-  { name: "Food", href: "#" },
-  { name: "Sports", href: "#" },
-  { name: "Animals", href: "#" },
-  { name: "Science", href: "#" },
-  { name: "Dinosaurs", href: "#" },
-  { name: "Talents", href: "#" },
-  { name: "Gaming", href: "#" },
-];
 
 const Sidebar = ({navigation}) => {
   return (

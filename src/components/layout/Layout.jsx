@@ -3,10 +3,11 @@ import { InformationCircleIcon, Squares2X2Icon } from "@heroicons/react/24/outli
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Outlet } from "react-router-dom";
 
 const navigation = [
   { name: "Boards", href: "/", icon: Squares2X2Icon, current: true },
-  { name: "About", href: "#", icon: InformationCircleIcon, current: false },
+  { name: "About", href: "/about", icon: InformationCircleIcon, current: false },
   // { name: "Popular", href: "#", icon: FireIcon, current: false },
   // { name: "Communities", href: "#", icon: UserGroupIcon, current: false },
   // { name: "Trending", href: "#", icon: ArrowTrendingUpIcon, current: false },
@@ -31,15 +32,15 @@ const footerNavigation = {
   ],
 };
 
-export default function Layout({ children }) {
+export default function Layout({ children, setOpen }) {
   return (
     <>
       <div className="min-h-full">
-        <Navbar navigation={navigation} />
+        <Navbar navigation={navigation} setOpen={setOpen}/>
         <div className="pt-10 pb-[88px] h-[calc(100vh-56px)]">
           <div className="w-full sm:px-6 lg:grid lg:grid-cols-12 lg:gap-8 lg:px-8">
             <Sidebar navigation={navigation} />
-            <main className="lg:col-span-10 xl:col-span-10">{children}</main>
+            <main className="lg:col-span-10 xl:col-span-10">{children} <Outlet/></main>
           </div>
         </div>
         <Footer footerNavigation={footerNavigation} />

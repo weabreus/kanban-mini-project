@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BoardTask from "./BoardTask";
 import BoardTaskModal from "./BoardTaskModal";
 import { SquaresPlusIcon } from "@heroicons/react/24/outline";
@@ -12,14 +12,14 @@ const BoardList = ({
   taskList,
   dropListName,
   setDropListName,
-  uniqueLists
+  uniqueLists,
 }) => {
   const [open, setOpen] = useState(false);
   const [openNewTaskModal, setOpenNewTaskModal] = useState(false);
   const [selectedTask, setSelectedTask] = useState();
 
   const { boardId } = useParams();
-
+  
   const onDrop = (e) => {
     let newTaskList = [...taskList];
 
@@ -32,7 +32,11 @@ const BoardList = ({
     setTaskList(newTaskList);
     e.preventDefault();
   };
-  
+
+  useEffect(() => {
+    console.log(boardId)
+  }, [])
+
   return (
     <>
       <div
@@ -42,9 +46,9 @@ const BoardList = ({
           e.preventDefault();
           setDropListName(boardListName);
         }}
-        className="relative w-1/5 bg-gray-200 rounded-md border border-gray-300 p-2 text-gray-900 shadow-sm max-h-[calc(100vh-190px)]"
+        className="relative w-1/5 bg-contrast-500 rounded-md border border-gray-300 p-2 text-gray-900 shadow-md max-h-[calc(100vh-190px)]"
       >
-        <h1>{boardListName}</h1>
+        <h1 className="mb-2 text-darkbg-100 font-semibold">{boardListName}</h1>
         <div className="flex flex-col gap-2 mb-10 overflow-y-auto max-h-[calc(100%-65px)]">
           {tasks.length > 0 &&
             tasks.map((task) => (
@@ -65,26 +69,34 @@ const BoardList = ({
               setOpenNewTaskModal(true);
             }}
             type="button"
-            className="mx-2 w-full justify-center flex items-center gap-2 rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+            className="mx-2 w-full justify-center flex items-center gap-2 rounded-md bg-main-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-main-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main-800"
           >
             <SquaresPlusIcon className="h-5 w-5 font-bold" /> Add new task
           </button>
         </div>
       </div>
-      <BoardTaskModal
-        open={open}
-        setOpen={setOpen}
-        selectedTask={selectedTask}
-        uniqueLists={uniqueLists}
-      />
-      <BoardNewTaskModal
-        open={openNewTaskModal}
-        setOpen={setOpenNewTaskModal}
-        boardId={boardId}
-        listName={boardListName}
-        setTaskList={setTaskList}
-        taskList={taskList}
-      />
+      {open && (
+        <BoardTaskModal
+          key={`board-task-modal-${selectedTask}`}
+          open={open}
+          setOpen={setOpen}
+          selectedTask={selectedTask}
+          setSelectedTask={setSelectedTask}
+          uniqueLists={uniqueLists}
+          taskList={taskList}
+          setTaskList={setTaskList}
+        />
+      )}
+      {openNewTaskModal && (
+        <BoardNewTaskModal
+          open={openNewTaskModal}
+          setOpen={setOpenNewTaskModal}
+          boardId={boardId}
+          listName={boardListName}
+          setTaskList={setTaskList}
+          taskList={taskList}
+        />
+      )}
     </>
   );
 };

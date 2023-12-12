@@ -28,7 +28,7 @@ const BoardNewTaskModal = ({
     let newTaskList = [...taskList];
 
     newTaskList.push(task);
-
+    window.localStorage.setItem("tasks", JSON.stringify(newTaskList));
     setTaskList(newTaskList);
     setOpen(false);
   };
@@ -249,3 +249,5 @@ const BoardNewTaskModal = ({
 };
 
 export default BoardNewTaskModal;
+
+

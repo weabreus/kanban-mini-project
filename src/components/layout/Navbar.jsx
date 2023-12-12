@@ -3,6 +3,7 @@ import { classNames } from "../../utils/utils";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Menu, Popover, Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 const userNavigation = [
   { name: "Your Profile", href: "#" },
@@ -17,7 +18,7 @@ const user = {
     "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 
-const Navbar = ({ navigation }) => {
+const Navbar = ({ navigation, setOpen }) => {
   return (
     <>
       {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
@@ -25,8 +26,8 @@ const Navbar = ({ navigation }) => {
         as="header"
         className={({ open }) =>
           classNames(
-            open ? "fixed inset-0 z-40 overflow-y-auto" : "",
-            "bg-white shadow-sm lg:static lg:overflow-y-visible py-3"
+            open ? "fixed inset-0 overflow-y-auto" : "",
+            "bg-white shadow-sm lg:static lg:overflow-y-visible py-3 z-50"
           )
         }
       >
@@ -36,14 +37,14 @@ const Navbar = ({ navigation }) => {
               <div className="relative flex justify-between lg:gap-8 xl:grid xl:grid-cols-12">
                 <div className="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2">
                   <div className="flex flex-shrink-0 items-center">
-                    <a href="#" className="flex items-center gap-2 font-bold">
+                    <Link to="/" className="flex items-center gap-2 font-bold focus:outline-main-800">
                       <img
                         className="block h-8 w-auto"
                         src="/images/Kanban Logo.png"
                         alt="KanBan App"
                       />
                       <span>KanBan App</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
@@ -139,12 +140,12 @@ const Navbar = ({ navigation }) => {
                     </Transition>
                   </Menu> */}
 
-                  <a
-                    href="#"
-                    className="ml-6 inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  <button
+                    onClick={() => setOpen(true)}
+                    className="ml-6 inline-flex items-center rounded-md bg-main-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-main-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main-800"
                   >
                     New Board
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

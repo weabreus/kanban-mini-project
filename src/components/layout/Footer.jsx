@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = ({footerNavigation}) => {
   return (
     <footer
-          className="bg-white border-t border-gray-200 fixed left-0 bottom-0 w-[100vw] z-50"
+          className="bg-white border-t border-gray-200 fixed left-0 bottom-0 w-[100vw]"
           aria-labelledby="footer-heading"
         >
           <h2 id="footer-heading" className="sr-only">

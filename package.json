@@ -1,6 +1,9 @@
 {
-  "name": "kanban-mini-project",
-  "private": true,
+  "name": "kanban-app",
+  "description": "A Kanban mini project made with React with extensive use of the Drag and Drop API.",
+  "author": "Wellington Abreu",
+  "license": "MIT",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
